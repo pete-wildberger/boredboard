@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Bored Board</title>
+  <script src="/vendors/angular.min.js" charset="utf-8"></script>
+  <script src="/scripts/client.js" charset="utf-8"></script>
+  <script src="/scripts/services/mes.Service.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+
+<body ng-app="myApp">
+  <main ng-controller="BoredBoard as bb">
+    <div class="container">
+      <div class="row header">
+        <h1>Welcome to the Bored Board</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-3 post">
+          <h2>Come on BoredBoard!</h2>
+          <form class="postABored" name="post">
+            <input id="authIn" placeholder="Name" ng-model="bb.nameIn" required>
+            <textarea placeholder="Message" ng-model="bb.messIn" required></textarea>
+            <button id="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
+            <form>
+        </div>
+
+        <div class="col-md-9">
+          <div ng-repeat="x in bb.mesArray">
+            <p><span class="author">{{ x.author }}</span>: {{ x.message }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
