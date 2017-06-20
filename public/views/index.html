@@ -22,8 +22,8 @@
         <div class="col-md-3 post">
           <h2>Come on BoredBoard!</h2>
           <form class="postABored" name="post">
-            <input id="authIn" placeholder="Name" ng-model="bb.nameIn" required>
-            <textarea placeholder="Message" ng-model="bb.messIn" required></textarea>
+            <input id="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required>
+            <textarea placeholder="Message" ng-model="bb.inputed.messIn" required></textarea>
             <button id="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
             <form>
         </div>

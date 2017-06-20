@@ -10,7 +10,7 @@ app.service('MesService', function($http) {
     });
   };
   sv.postPosts = function(mes) {
-    $http({
+    return $http({
       method: 'POST',
       url: '/mes',
       data: mes

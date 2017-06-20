@@ -7,11 +7,12 @@ app.controller('BoredBoard', function(MesService) {
   vm.postIt = function() {
     console.log('in postIt');
     var addmes = {
-      author: vm.nameIn,
-      message: vm.messIn
+      author: vm.inputed.nameIn,
+      message: vm.inputed.messIn
     };
     MesService.postPosts(addmes);
     vm.displayMes();
+    vm.inputed = '';
   };
 
   vm.displayMes = function() {
