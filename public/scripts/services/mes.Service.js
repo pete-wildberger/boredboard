@@ -18,5 +18,25 @@ app.service('MesService', function($http) {
       console.log('back from server with:', response);
     });
   };
+  sv.sendLogIn = function() {
+    console.log('in Service');
+    var credentials = {
+      username: "Pete",
+      password: "Stone"
+    };
+    return $http.post('/', credentials).then(function(res) {
+      console.log('login back', res);
+    });
+  };
+  sv.sendRegister = function() {
+    console.log('in Service');
+    var credentials = {
+      username: "Tim",
+      password: "Brick"
+    };
+    return $http.post('/register', credentials).then(function(res) {
+      console.log('login back', res);
+    });
+  };
 
 });

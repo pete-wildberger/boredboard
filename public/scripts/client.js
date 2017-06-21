@@ -25,4 +25,13 @@ app.controller('BoredBoard', function(MesService) {
   };
   vm.displayMes();
 
+vm.logIn = function(){
+  console.log('in the controller logIn');
+  MesService.sendLogIn();
+};
+vm.register = function(){
+  console.log('in the controller logIn');
+  MesService.sendRegister();
+};
+
 });
