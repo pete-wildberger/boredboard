@@ -10,9 +10,10 @@ app.controller('BoredBoard', function(MesService) {
       author: vm.inputed.nameIn,
       message: vm.inputed.messIn
     };
-    MesService.postPosts(addmes);
-    vm.displayMes();
-    vm.inputed = '';
+    MesService.postPosts(addmes).then(function(res) {
+      vm.displayMes();
+      vm.inputed = '';
+    });
   };
 
   vm.displayMes = function() {
