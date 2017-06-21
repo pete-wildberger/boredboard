@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require( 'path' );
 var bcrypt = require('bcrypt');
 var bodyParser = require('body-parser');
-
+var user = require('../user');
 
 router.use(bodyParser.urlencoded({extend: true}));
 router.use(bodyParser.json());

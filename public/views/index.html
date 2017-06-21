@@ -20,15 +20,21 @@
       </div>
       <div class="row">
         <div class="col-md-3 post">
-          <h2>Come on BoredBoard!</h2>
-          <button id="submit" ng-click="bb.logIn()">LOG IN</button>
-          <button id="submit" ng-click="bb.register()">REGISTER</button>
-          <h2>Beat on the BoredBoard!</h2>
-          <form class="postABored" name="post">
-            <input id="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required>
-            <textarea placeholder="Message" ng-model="bb.inputed.messIn" required></textarea>
-            <button id="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
-            <form>
+          <div id="register">
+            <h2>Come on BoredBoard!</h2>
+            <input class="authIn" placeholder="username" ng-model="bb.inputed.userRegister">
+            <input class="authIn" placeholder="password" type="password" ng-model="bb.inputed.passwordRegister">
+            <button id="submit" ng-click="bb.logIn()">LOG IN</button>
+            <button id="submit" ng-click="bb.register()">REGISTER</button>
+          </div>
+          <div id="post">
+            <h2>Beat on the BoredBoard!</h2>
+            <form class="postABored" name="post">
+              <input class="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required>
+              <textarea placeholder="Message" ng-model="bb.inputed.messIn" required></textarea>
+              <button id="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
+              <form>
+          </div>
         </div>
 
         <div class="col-md-9">

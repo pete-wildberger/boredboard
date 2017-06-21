@@ -24,9 +24,10 @@ h1 {
   color: #F45B69;
 }
 
-#authIn {
+.authIn {
   width: 226px;
   margin-bottom: 6px;
+    font-size: 20px;
 }
 
 #submit {

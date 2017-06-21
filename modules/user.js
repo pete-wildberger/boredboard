@@ -1,6 +1,6 @@
 var mongoose = require( 'mongoose' );
 
-mongoose.connect( 'localhost:27017/users' );
+mongoose.connect( 'localhost:27017/messdb' );
 var userSchema = new mongoose.Schema({
   username: String,
   password: String
