@@ -13,16 +13,16 @@ app.service('MesService', function($http) {
   };
   sv.sendLogIn = function(credentials) {
     console.log('in Service');
-
     return $http.post('/', credentials).then(function(res) {
       console.log('login back', res);
+      return res;
     });
   };
   sv.sendRegister = function(credentials) {
     console.log('in Service');
-
     return $http.post('/register', credentials).then(function(res) {
       console.log('login back', res);
+      return res;
     });
   };
 

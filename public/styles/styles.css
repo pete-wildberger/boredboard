@@ -30,7 +30,7 @@ h1 {
     font-size: 20px;
 }
 
-#submit {
+.submit {
   background-color: #4062BB;
   border: none;
   color: white;
@@ -42,7 +42,12 @@ h1 {
   width: 226px;
   margin-bottom: 6px;
 }
-
-#submit:hover {
+#out{
+  background-color: #F45B69;
+}
+#out:hover{
+  background-color: #52489C;
+}
+.submit:hover {
   background-color: #52489C;
 }

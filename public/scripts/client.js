@@ -2,12 +2,14 @@ var app = angular.module('myApp', []);
 
 app.controller('BoredBoard', function(MesService) {
   var vm = this;
+  var uName =[];
+  vm.loggedIn = false;
   console.log('NG YO');
 
   vm.postIt = function() {
     console.log('in postIt');
     var addmes = {
-      author: vm.inputed.nameIn,
+      author: uName[0],
       message: vm.inputed.messIn
     };
     MesService.postPosts(addmes).then(function(res) {
@@ -28,11 +30,27 @@ app.controller('BoredBoard', function(MesService) {
   vm.logIn = function() {
     console.log('in the controller logIn');
     var credentials = {
-      username: vm.inputed.userRegister,
+      username: vm.userRegister,
       password: vm.inputed.passwordRegister
     };
-    MesService.sendLogIn(credentials);
-    vm.inputed = '';
+    MesService.sendLogIn(credentials).then(function(res) {
+      console.log(res);
+      if (res.status == 200) {
+        console.log(credentials.username);
+        uName.push(credentials.username);
+        console.log(uName);
+        vm.loggedIn = !vm.loggedIn;
+        vm.inputed = '';
+      } else {
+        swal(
+          'Opps...',
+          "We can't find your username",
+          'question'
+        );
+
+      }
+
+    });
   };
   vm.register = function() {
     var credentials = {
@@ -40,10 +58,28 @@ app.controller('BoredBoard', function(MesService) {
       password: vm.inputed.passwordRegister
     };
     console.log('in the controller logIn');
-    MesService.sendRegister(credentials).then(function(){
-        vm.inputed = '';
+    MesService.sendRegister(credentials).then(function(res) {
+      vm.inputed = '';
+      console.log(res);
+      if (res.status == 201) {
+        swal(
+          'Good job!',
+          'You are now registered!',
+          'success'
+        );
+      } else {
+        swal(
+          'Oops...',
+          'Something went wrong!',
+          'error'
+        );
+      }
     });
-
+  };
+  vm.logOut = function(){
+    uName.pop();
+    vm.userRegister = '';
+    vm.loggedIn = !vm.loggedIn;
   };
 
 });

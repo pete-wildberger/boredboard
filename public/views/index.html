@@ -5,9 +5,11 @@
   <meta charset="utf-8">
   <title>Bored Board</title>
   <script src="/vendors/angular.min.js" charset="utf-8"></script>
+  <script src="/vendors/sweetalert2.min.js" charset="utf-8"></script>
   <script src="/scripts/client.js" charset="utf-8"></script>
   <script src="/scripts/services/mes.Service.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="/vendors/sweetalert2.min.css">
   <link rel="stylesheet" href="/vendors/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css">
 </head>
@@ -20,20 +22,23 @@
       </div>
       <div class="row">
         <div class="col-md-3 post">
-          <div id="register">
+          <div id="register" ng-hide="bb.loggedIn">
             <h2>Come on BoredBoard!</h2>
-            <input class="authIn" placeholder="username" ng-model="bb.inputed.userRegister">
-            <input class="authIn" placeholder="password" type="password" ng-model="bb.inputed.passwordRegister">
-            <button id="submit" ng-click="bb.logIn()">LOG IN</button>
-            <button id="submit" ng-click="bb.register()">REGISTER</button>
+            <form name=login>
+            <input class="authIn" placeholder="username" ng-model="bb.userRegister" required>
+            <input class="authIn" placeholder="password" type="password" ng-model="bb.inputed.passwordRegister" required>
+            <button class="submit" ng-click="bb.logIn()" ng-disabled="login.$invalid">LOG IN</button>
+            <button class="submit" ng-click="bb.register()" ng-disabled="login.$invalid">REGISTER</button>
+</form>
           </div>
-          <div id="post">
+          <div id="post" ng-show="bb.loggedIn">
             <h2>Beat on the BoredBoard!</h2>
             <form class="postABored" name="post">
-              <input class="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required>
+              <!-- <input class="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required> -->
               <textarea placeholder="Message" ng-model="bb.inputed.messIn" required></textarea>
-              <button id="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
-              <form>
+              <button class="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>
+              <button class="submit" id="out" ng-click="bb.logOut()">LOG OUT</button>
+            </form>
           </div>
         </div>
 
