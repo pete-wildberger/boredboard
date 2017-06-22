@@ -22,18 +22,18 @@
       </div>
       <div class="row">
         <div class="col-md-3 post">
-          <div id="register" ng-hide="bb.loggedIn">
+          <div id="register" ng-hide="bb.loggedIn" >
             <h2>Come on BoredBoard!</h2>
-            <form name=login>
-            <input class="authIn" placeholder="username" ng-model="bb.userRegister" required>
-            <input class="authIn" placeholder="password" type="password" ng-model="bb.inputed.passwordRegister" required>
-            <button class="submit" ng-click="bb.logIn()" ng-disabled="login.$invalid">LOG IN</button>
-            <button class="submit" ng-click="bb.register()" ng-disabled="login.$invalid">REGISTER</button>
-</form>
+            <form name="login" novalidate>
+              <input class="authIn" placeholder="username" ng-model="bb.userRegister" required>
+              <input class="authIn" placeholder="password" type="password" ng-model="bb.inputed.passwordRegister" required>
+              <button class="submit" ng-click="bb.logIn()" ng-disabled="login.$invalid">LOG IN</button>
+              <button class="submit" ng-click="bb.register()" ng-disabled="login.$invalid">REGISTER</button>
+            </form>
           </div>
           <div id="post" ng-show="bb.loggedIn">
             <h2>Beat on the BoredBoard!</h2>
-            <form class="postABored" name="post">
+            <form class="postABored" name="post" novalidate>
               <!-- <input class="authIn" placeholder="Name" ng-model="bb.inputed.nameIn" required> -->
               <textarea placeholder="Message" ng-model="bb.inputed.messIn" required></textarea>
               <button class="submit" ng-click="bb.postIt()" ng-disabled="post.$invalid">POST</button>

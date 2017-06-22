@@ -54,7 +54,7 @@ app.controller('BoredBoard', function(MesService) {
   };
   vm.register = function() {
     var credentials = {
-      username: vm.inputed.userRegister,
+      username: vm.userRegister,
       password: vm.inputed.passwordRegister
     };
     console.log('in the controller logIn');
